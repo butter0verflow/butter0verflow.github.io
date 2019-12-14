@@ -104,15 +104,12 @@ author:
   name             : "Abhijeet"
   avatar           : "/assets/images/avatar.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Infosec Student, OSCP"
-  location         : "Somewhere, USA"
+  location         : "USA"
   email            :
   links:
     #- label: "Email"
     #  icon: "fas fa-fw fa-envelope-square"
     #  url: mailto:butter0verflow@gmail.com
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: "https://butter0verflow.github.io"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/butter0verflow"
@@ -122,6 +119,9 @@ author:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/butter0verflow"
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://butter0verflow.github.io"
     #- label: "Instagram"
     #  icon: "fab fa-fw fa-instagram"
       # url: 
@@ -279,10 +279,12 @@ defaults:
       toc_label: "On this page"
       toc_icon: "cog"
       read_time: true
-      comments: true
+      comments: false
       share: true
       related: true
-      #classes: wide
+      classes: wide
+      sidebar:
+        nav: "nav_posts"
   #_pages
   - scope:
       path: ""

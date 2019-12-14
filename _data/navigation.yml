@@ -1,14 +1,31 @@
 # main links
 main:
-  #- title: "Quick-Start Guide"
-  #  url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
-  - title: "Resources"
+  - title: "All Resources"
     url: /resources/
   - title: "About"
     url: /about/
-  # - title: "Sample Posts"
-  #   url: /year-archive/
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
-  # - title: "Sitemap"
-  #   url: /sitemap/
+
+# posts sidebar
+nav_posts:
+  - title: Useful links
+    children:
+      - title: "root"
+        url: /
+      - title: "About"
+        url: /about/
+  - title: OSCP Resources
+    children:
+      - title: "OSCP Journey"
+        url: /oscp/
+  - HTB Writeups
+    children:
+      - title: "Hack the Box"
+        url: /htb/
+  - title: CTFs 
+    children:
+      - title: "CTF Writeups"
+        url: /ctf/
+  -title: Misc
+    children:
+      - title: "Uncategorized"
+        url: /misc/
