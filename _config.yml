@@ -75,7 +75,7 @@ yandex_site_verification :
 naver_site_verification  :
 
 
-categories: [oscp, htb]
+category-list: [oscp, htb]
 # Social Sharing
 twitter:
   username               : butter0verflow
