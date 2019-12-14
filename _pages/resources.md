@@ -6,8 +6,7 @@ author_profile: true
 comments: false
 ---
 
-List of all posts on this blog:
-
+This page lists all the sections on this blog.
 
 {% for cat in site.category-list %}
 ### {{ cat }}

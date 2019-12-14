@@ -1,17 +1,16 @@
----
-title:  "OSCP Resources"
+title:  "Misc"
 layout: archive
-permalink: /oscp/
+permalink: /misc/
 author_profile: true
 comments: false
 resource: true
-categories: [oscp]
+categories: [misc]
 ---
 
-This page lists all the OSCP related posts on this blog.
+This page lists all the uncategorized posts on this blog.
 
 {% for post in site.posts %}
-	{% if post.categories contains 'oscp' %}
+	{% if post.categories contains 'misc' %}
   	{% unless post.next %}
     	<font color="#778899"><h2>{{ post.date | date: '%Y %b' }}</h2></font>
   	{% else %}
