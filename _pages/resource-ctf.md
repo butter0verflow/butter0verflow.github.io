@@ -2,8 +2,6 @@
 title:  "CTF Writeups"
 layout: archive
 permalink: /ctf/
-author_profile: true
-comments: false
 resource: true
 categories: [ctf]
 ---

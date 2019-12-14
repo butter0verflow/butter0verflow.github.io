@@ -1,12 +1,7 @@
 ---
-layout: single
 title: OSCP Journey
+description: From zero to hero - my OSCP journey
 categories: [oscp]
-
-author_profile: true
-toc: true
-toc_label: "On this page"
-toc_icon: "cog"
 ---
 
 ## My OSCP Journey

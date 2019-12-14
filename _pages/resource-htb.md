@@ -2,8 +2,6 @@
 title:  "Hack the Box Writeups"
 layout: archive
 permalink: /htb/
-author_profile: true
-comments: false
 resource: true
 categories: [htb]
 ---

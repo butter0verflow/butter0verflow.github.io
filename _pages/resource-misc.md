@@ -2,8 +2,6 @@
 title:  "Misc"
 layout: archive
 permalink: /misc/
-author_profile: true
-comments: false
 resource: true
 categories: [misc]
 ---

@@ -2,8 +2,6 @@
 title:  "OSCP Resources"
 layout: archive
 permalink: /oscp/
-author_profile: true
-comments: false
 resource: true
 categories: [oscp]
 ---

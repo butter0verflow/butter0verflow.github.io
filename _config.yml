@@ -27,9 +27,9 @@ teaser                   : # path of fallback teaser image, e.g. "/assets/images
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
-  provider               : # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "staticman_v2", "utterances", "custom"
+  provider               : disqus # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "staticman_v2", "utterances", "custom"
   disqus:
-    shortname            : # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
+    shortname            : butter0verflow # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
   discourse:
     server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
   utterances:
@@ -107,9 +107,9 @@ author:
   location         : "Somewhere, USA"
   email            :
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: mailto:butter0verflow@gmail.com
+    #- label: "Email"
+    #  icon: "fas fa-fw fa-envelope-square"
+    #  url: mailto:butter0verflow@gmail.com
     - label: "Website"
       icon: "fas fa-fw fa-link"
       url: "https://butter0verflow.github.io"
@@ -268,7 +268,7 @@ compress_html:
 
 # Defaults
 defaults:
-  # _posts
+  _posts
   - scope:
       path: ""
       type: posts
@@ -276,8 +276,23 @@ defaults:
       layout: single
       author_profile: false
       toc: true
+      toc_label: "On this page"
+      toc_icon: "cog"
       read_time: true
-      comments: false
+      comments: true
       share: true
       related: true
-      classes: wide
+      #classes: wide
+_pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: archive
+      author_profile: true
+      toc: false
+      read_time: false
+      comments: false
+      share: false
+      related: false
+      #classes: wide
