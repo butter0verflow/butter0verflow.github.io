@@ -8,11 +8,11 @@ resource: true
 categories: [htb]
 ---
 
-List of all OSCP posts on this blog:
+List of all HTB posts on this blog:
 
 <ul>
   {% for post in site.posts %}
-  	{% if page.categories contains 'htb' %}
+  	{% if post.categories contains 'htb' %}
     	{% unless post.next %}
       	<font color="#778899"><h2>{{ post.date | date: '%Y %b' }}</h2></font>
     	{% else %}
