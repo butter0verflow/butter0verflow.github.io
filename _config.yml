@@ -271,7 +271,7 @@ defaults:
   #_posts
   - scope:
       path: ""
-      type: posts
+      type: "posts"
     values:
       layout: single
       author_profile: false
@@ -286,7 +286,7 @@ defaults:
   #_pages
   - scope:
       path: ""
-      type: pages
+      type: "pages"
     values:
       layout: archive
       author_profile: true

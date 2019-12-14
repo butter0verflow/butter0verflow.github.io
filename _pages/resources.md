@@ -6,7 +6,6 @@ permalink: /resources/
 
 This page lists all the sections on this blog.
 {% for cat in site.category-list %}
-### {{ cat }}
 <ul>
   {% for page in site.pages %}
     {% if page.resource == true %}
