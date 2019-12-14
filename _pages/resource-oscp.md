@@ -10,6 +10,7 @@ categories: [oscp]
 
 This page lists all the OSCP related posts on this blog.
 
+<ul>
 {% for post in site.posts %}
 	{% if post.categories contains 'oscp' %}
   	{% unless post.next %}
@@ -24,3 +25,4 @@ This page lists all the OSCP related posts on this blog.
  		{% include archive-single.html %}
 {% endif %}
 {% endfor %}
+</ul>

@@ -9,7 +9,7 @@ categories: [htb]
 ---
 
 This page lists all the Hack the Box writeups on this blog.
-
+<ul>
 {% for post in site.posts %}
 	{% if post.categories contains 'htb' %}
   	{% unless post.next %}
@@ -24,3 +24,4 @@ This page lists all the Hack the Box writeups on this blog.
  		{% include archive-single.html %}
 {% endif %}
 {% endfor %}
+</ul>

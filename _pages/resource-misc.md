@@ -1,3 +1,4 @@
+---
 title:  "Misc"
 layout: archive
 permalink: /misc/
@@ -9,6 +10,7 @@ categories: [misc]
 
 This page lists all the uncategorized posts on this blog.
 
+<ul>
 {% for post in site.posts %}
 	{% if post.categories contains 'misc' %}
   	{% unless post.next %}
@@ -23,3 +25,4 @@ This page lists all the uncategorized posts on this blog.
  		{% include archive-single.html %}
 {% endif %}
 {% endfor %}
+</ul>

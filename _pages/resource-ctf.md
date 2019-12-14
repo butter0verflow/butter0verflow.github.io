@@ -1,3 +1,4 @@
+---
 title:  "CTF Writeups"
 layout: archive
 permalink: /ctf/
@@ -9,6 +10,7 @@ categories: [ctf]
 
 This page lists all the CTF writeups on this blog.
 
+<ul>
 {% for post in site.posts %}
 	{% if post.categories contains 'ctf' %}
   	{% unless post.next %}
@@ -23,3 +25,4 @@ This page lists all the CTF writeups on this blog.
  		{% include archive-single.html %}
 {% endif %}
 {% endfor %}
+</ul>

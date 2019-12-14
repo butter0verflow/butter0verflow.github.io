@@ -5,7 +5,7 @@ categories: [oscp]
 
 author_profile: true
 toc: true
-toc_label: "Table of Contents"
+toc_label: "On this page"
 toc_icon: "cog"
 ---
 
