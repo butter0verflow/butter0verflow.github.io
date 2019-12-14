@@ -25,7 +25,7 @@ nav_posts:
     children:
       - title: "CTF Writeups"
         url: /ctf/
-  -title: "Misc"
+  - title: "Misc"
     children:
       - title: "Uncategorized"
         url: /misc/
