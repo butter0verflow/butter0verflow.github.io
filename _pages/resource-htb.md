@@ -1,18 +1,18 @@
 ---
-title:  "OSCP Posts"
+title:  "HTB Posts"
 layout: archive
-permalink: /oscp/
+permalink: /htb/
 author_profile: true
 comments: false
 resource: true
-categories: [oscp]
+categories: [htb]
 ---
 
 List of all OSCP posts on this blog:
 
 <ul>
   {% for post in site.posts %}
-  	{% if page.categories contains 'oscp' %}
+  	{% if page.categories contains 'htb' %}
     	{% unless post.next %}
       	<font color="#778899"><h2>{{ post.date | date: '%Y %b' }}</h2></font>
     	{% else %}
