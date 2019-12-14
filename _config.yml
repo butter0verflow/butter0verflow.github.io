@@ -74,6 +74,8 @@ bing_site_verification   :
 yandex_site_verification :
 naver_site_verification  :
 
+
+categories: [oscp, htb]
 # Social Sharing
 twitter:
   username               : butter0verflow
@@ -99,7 +101,7 @@ analytics:
 
 # Site Author
 author:
-  name             : "b0"
+  name             : "Abhijeet"
   avatar           : "/assets/images/avatar.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "OSCP, Infosec Student"
   location         : "US"
