@@ -17,7 +17,7 @@ nav_posts:
     children:
       - title: "OSCP Journey"
         url: /oscp/
-  - HTB Writeups
+  - title: HTB Writeups
     children:
       - title: "Hack the Box"
         url: /htb/
