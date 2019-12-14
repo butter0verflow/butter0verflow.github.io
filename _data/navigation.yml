@@ -7,25 +7,25 @@ main:
 
 # posts sidebar
 nav_posts:
-  - title: Useful links
+  - title: "Useful links"
     children:
       - title: "All posts"
         url: /resources/
       - title: "About"
         url: /about/
-  - title: OSCP Resources
+  - title: "OSCP Resources"
     children:
       - title: "OSCP Journey"
         url: /oscp/
-  - title: HTB Writeups
+  - title: "HTB Writeups"
     children:
       - title: "Hack the Box"
         url: /htb/
-  - title: CTFs 
+  - title: "CTFs" 
     children:
       - title: "CTF Writeups"
         url: /ctf/
-  -title: Misc
+  -title: "Misc"
     children:
       - title: "Uncategorized"
         url: /misc/
