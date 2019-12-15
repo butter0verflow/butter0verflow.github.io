@@ -1,7 +1,7 @@
 ---
 title: OSCP/PWK Review
 header:
-  image: /assets/images/header/header1.jpeg
+  image: /assets/images/header/header1.jpg
 categories: [oscp]
 tags: [oscp, Offensive Security]
 ---
