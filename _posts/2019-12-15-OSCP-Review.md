@@ -67,31 +67,31 @@ Best rosurce available out there for Windows Privilge Escalation, I would not ha
 Amazing resource for learning common Linux Privilege Escalation techniques. They also have a well written walkthrough [here](https://in.security/lin-security-walkthrough/)
 
 + [Linux Privilege Escalation Guide](https://www.udemy.com/course/linux-privilege-escalation/) :
-Another amazing resource from Tib3rius, the author of Autorecon. While I did not take this, I have heard really good reviews about this for OSCP (Pro tip: Get in touch with them for discounts!). 
+Another amazing resource from Tib3rius, the author of Autorecon. While I did not take this, I have heard really good reviews about this for OSCP (Pro tip: Get in touch with them on above mentioned discord server for discounts!). 
 
 + [PortSwigger's Web Security Academy](https://portswigger.net/web-security) :
 This is a very good guide on fundamentals of Web app vulns.
 
 + [dostackbufferoverflowgood](https://github.com/justinsteven/dostackbufferoverflowgood) :
-I used this to practice bufer overflows before the exam. They have a well written writeup too!
+I used this to practice buffer overflows before the exam. They have a well written writeup too!
 
 ## Advice
 
-+ The OSCP exam is all about enumertion. If you hit a brick wall, you probably missed something important in the enumeration. Don't spend too long working in the same direction, just reset and enumerate again. Following this could have saved me more than 6 hours in exam and a lot of frustration.  
++ The OSCP exam is all about enumeration. If you hit a brick wall, you probably missed something important in the enumeration. Don't spend too long working in the same direction, just reset and enumerate again. Following this could have saved me more than 6 hours in exam and a lot of frustration.  
 + Don't exploit the machines just to get flags. Learn what service it is, what it does and how it is supposed to work under normal conditions. This will help you understand what's different in your situation, ultimately making it easier for you to exploit it. 
 + Don't rely solely on the PWK labs. They are outdated and don't cover many of the necessary techniques.
 + Try to work on other resources such as VHL, HTB or above mentioned resources. They are really helpful from the course and exam's perpective.
 + Try to develope your own methodology. For example, I'm more comfortable with web services than network. So, I'd always enumerate the web ports first and then go after other services.
 + For windows, learn how to upgrade to powershell on the victim system using [Nishang](https://github.com/samratashok/nishang). You can watch ippsec's videos for this (Writeup coming soon!). 
 	- Learning how to load and run those powershell scripts directly from memory can help you evade AV and HIDS on newer windows OS!
-	- Powershell allows you to use PS Modules like [PowerUp](https://github.com/HarmJ0y/PowerUp) and [JAWS](https://github.com/411Hall/JAWS) which makes the privilge escalation way more easier.
+	- Powershell allows you to use PS Modules like [PowerUp](https://github.com/HarmJ0y/PowerUp) and [JAWS](https://github.com/411Hall/JAWS) which make the privilge escalation way more easier.
 + If you are familiar with the basic concepts, just skip the lab exercises. They are really not worth the 1 week/5 points and you'd rather spend that time learning about something else.
 + In the exam, remember to take breaks and eat/drink.
 
 
 ## Post-OSCP plans
 
-It's already been more than a month since getting the OSCP. I had to spend it catching up with the semester (hence the late post!), and right now I'm enjoying the little winter break before diving more into web apps. My current plan is to work on [PenterLab's Web Exercises](https://pentesterlab.com/exercises) and then start looking for web app pentesting jobs. I want to start OSWE in February, but that'd depend on how the job hunt goes.
+It's already been more than a month since getting the OSCP. I had to spend it catching up with the semester (hence the late post!), and right now I'm enjoying the little winter break before diving more into web apps. My current plan is to work on [PentesterLab's Web Exercises](https://pentesterlab.com/exercises) and then start looking for web app pentesting jobs. I want to start OSWE in February, but that'd depend on how the job hunt goes.
 
 
 Thank you for reading this article. As the [about](/about/) section says, I suck at writing and this was my first ever blog post. I hope this proves to be helpful to someone. If you have any questions or would just like to discuss anything, feel free to get in touch with me!
