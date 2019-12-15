@@ -17,7 +17,7 @@ nav_posts:
         url: /about/
   - title: "OSCP Resources"
     children:
-      - title: "OSCP Journey"
+      - title: "OSCP Resources"
         url: /oscp/
   - title: "HTB Writeups"
     children:
