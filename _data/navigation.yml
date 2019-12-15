@@ -9,8 +9,10 @@ main:
 nav_posts:
   - title: "Useful links"
     children:
-      - title: "All posts"
+      - title: "All resources"
         url: /resources/
+      - title: "All posts"
+        url: /all_posts/
       - title: "About"
         url: /about/
   - title: "OSCP Resources"
