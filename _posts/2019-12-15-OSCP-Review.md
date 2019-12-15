@@ -66,8 +66,8 @@ Best resource available out there for Windows Privilge Escalation, I would not h
 + [Lin.security](https://www.vulnhub.com/entry/linsecurity-1,244/) :
 amazing resource for learning common Linux Privilege Escalation techniques. They also have a well written walkthrough [here](https://in.security/lin-security-walkthrough/)
 
-+ [Linux Privilege Escalation Guide](https://www.udemy.com/course/linux-privilege-escalation/) :
-Another amazing resource from Tib3rius, the author of Autorecon. While I did not take this, I have heard really good reviews about this for OSCP (Pro tip: Get in touch with them on above mentioned discord server for discounts!). 
++ [Linux Privilege Escalation Guide](https://www.udemy.com/course/linux-privilege-escalation/?referralCode=0B0B7AA1E52B4B7F4C06) :
+Another amazing resource from Tib3rius, the author of Autorecon. While I did not take this, I have heard really good reviews about this for OSCP. 
 
 + [PortSwigger's Web Security Academy](https://portswigger.net/web-security) :
 This is a very good guide on fundamentals of Web app vulns.
@@ -81,7 +81,7 @@ I used this to practice buffer overflows before the exam. They have a well writt
 + Don't exploit the machines just to get flags. Learn what service it is, what it does and how it is supposed to work under normal conditions. This will help you understand what's different in your situation, ultimately making it easier for you to exploit it. 
 + Don't rely solely on the PWK labs. They are outdated and don't cover many of the necessary techniques.
 + Try to work on other resources such as VHL, HTB or ones mentioned above. They are really helpful from the course and exam's perpective.
-+ Try to develope your own methodology. For example, I'm more comfortable with web services than network. So, I'd always enumerate the web ports first and then go after other services.
++ Try to develope your own methodology. For example, I'm more comfortable with web services than network. So, I'd always enumerate the web ports first and then go after other services. FalconSpy has written a detailed [article](https://medium.com/@falconspy/oscp-developing-a-methodology-32f4ab471fd6?sk=44a07ab85f8feeca4a211269e664a229) on this.
 + For windows, learn how to upgrade to powershell on the victim system using [Nishang](https://github.com/samratashok/nishang). You can watch ippsec's videos for this (Writeup coming soon!). 
 	- Learning how to load and run those powershell scripts directly from memory can help you evade AV and HIDS on newer windows OS!
 	- Powershell allows you to use PS Modules like [PowerUp](https://github.com/HarmJ0y/PowerUp) and [JAWS](https://github.com/411Hall/JAWS) which make the privilge escalation way more easier.
