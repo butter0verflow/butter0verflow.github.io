@@ -1,7 +1,5 @@
 ---
 title: OSCP/PWK Review
-header:
-  image: /assets/images/header.jpg
 categories: [oscp]
 tags: [oscp, Offensive Security]
 ---
@@ -9,6 +7,8 @@ tags: [oscp, Offensive Security]
 Another obligatory OSCP review? Why not!
 
 I recently took at a shot at OSCP and passed it with flying colors (got 5/5 systems in first attempt!). Other than academics and an internship, I had no prior work experience in pentesting. In this blog post, I will try to summarize my OSCP/PWK experience with the hope of helping others who are in similar situation or want to take a step in this direction. This is my first post and I will try to keep it as much concise as possible while also trying to be useful.  
+
+![](//assets/images/oscp/oscp.png)
 
 ## Background
 

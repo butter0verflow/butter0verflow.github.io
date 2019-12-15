@@ -285,6 +285,8 @@ defaults:
       classes: wide
       sidebar:
         nav: "nav_posts"
+      header:
+        image: /assets/images/header.jpg
   #_pages
   - scope:
       path: ""
