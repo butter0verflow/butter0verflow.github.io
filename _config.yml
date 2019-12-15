@@ -119,9 +119,9 @@ author:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/butter0verflow"
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: "https://butter0verflow.github.io"
+    #- label: "Website"
+    #  icon: "fas fa-fw fa-link"
+    #  url: "https://butter0verflow.github.io"
     #- label: "Instagram"
     #  icon: "fab fa-fw fa-instagram"
       # url: 
