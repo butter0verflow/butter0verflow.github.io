@@ -46,7 +46,7 @@ I woke up at about 10AM. Even though a short one, it was a good 3-hours nap. Sin
 
 As a newbie to pentesting, it took me about 5 months of prepartion to get to this point. Directly or indirectly, I learned a lot from this course and had a lot of fun. While the PWK labs are definitely outdated and also fall short on important topics such as Windows privesc and client-side web explotation, they are still worth every penny and time. The OSCP cert is still one of the more important things to have on your resume for an entry level pentesting job and you'd not regret it.
 
-On the flipside, PWK labs are very outdated. Almost all the boxes \*nix boxes can be privesc'ed with a kernel exploit and many of the windows boxes directly give you system shell. There's so exposure to newer OS versions, AV and HIDS, Active Directory and Powershell etc. which is a big part of real-world pentesting. In this aspect, Hack the Box and VHL are way ahead. Honestly, I learned more from Ippsec's youtube videos and HTB than the PWK/OSCP. But as I said, this was a very challenging yet fun thing that required a newbie like me to put a lot of efforts and it was worth it. I can't speak for someone with a good amount of pentesting experience but I'd recommend it to anyone trying to break into this field!         
+On the flipside, PWK labs are very outdated. Almost all the \*nix boxes can be privesc'ed with a kernel exploit and many of the windows boxes directly give you system shell. There's so exposure to newer OS versions, AV and HIDS, Active Directory and Powershell etc. which is a big part of real-world pentesting. In this aspect, Hack the Box and VHL are way ahead. Honestly, I learned more from Ippsec's youtube videos and HTB than the PWK/OSCP. But as I said, this was a very challenging yet fun thing that required a newbie like me to put a lot of efforts and it was worth it. I can't speak for someone with a good amount of pentesting experience but I'd recommend it to anyone trying to break into this field!         
 
 ## Takeaways and Resources
 
@@ -55,7 +55,7 @@ During this course, I came across an amazing community [InfoSec Prep](https://di
 While most of these takeaways are listed on every other blog, I will just try to list the ones that were most helpful.
 
 + [Autorecon](https://github.com/Tib3rius/AutoRecon) :
-This gem of a tool can be used to automate the initial enumeration phase. While I did not use it in labs, I decided to give it a go just four days before the exam, configured it according to my preferences and used it in the exam. This saved me a lot of time by automating all that enumeration. All I had to was to look at the huge output and figure out which low hanging fruit to go after. For something like OSCP exam which is time bound, autorecon is definitely very useful.
+This gem of a tool can be used to automate the initial enumeration phase. While I did not use it in labs, I decided to give it a go just four days before the exam, configured it according to my preferences and used it in the exam. This saved me a lot of time by automating all that enumeration. All I had to do was to look at the huge output and figure out which low hanging fruit to go after. For something like OSCP exam which is time bound, autorecon is definitely very useful.
 
 + [OSCP-HTB Walkthrough Playlist by TJNull and Ippsec](https://www.youtube.com/playlist?list=PLidcsTyj9JXK-fnabFLVEvHinQ14Jy5tf) :
 This channel and playlist deserve a huge amount of credits for helping me learn and pass the OSCP.
@@ -67,7 +67,7 @@ Best rosurce available out there for Windows Privilge Escalation, I would not ha
 Amazing resource for learning common Linux Privilege Escalation techniques. They also have a well written walkthrough [here](https://in.security/lin-security-walkthrough/)
 
 + [Linux Privilege Escalation Guide](https://www.udemy.com/course/linux-privilege-escalation/) :
-Another amazing resource from Tib3rius, the author of Autorecon. While I did not take this, I have heard really good reviews about this for OSCP. 
+Another amazing resource from Tib3rius, the author of Autorecon. While I did not take this, I have heard really good reviews about this for OSCP (Pro tip: Get in touch with them for discounts!). 
 
 + [PortSwigger's Web Security Academy](https://portswigger.net/web-security) :
 This is a very good guide on fundamentals of Web app vulns.
