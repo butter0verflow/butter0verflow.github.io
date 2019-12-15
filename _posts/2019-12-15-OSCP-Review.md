@@ -61,7 +61,7 @@ This gem of a tool can be used to automate the initial enumeration phase. While 
 This channel and playlist deserve a huge amount of credits for helping me learn and pass the OSCP.
 
 + [lpeworkshop](https://github.com/sagishahar/lpeworkshop) :
-Best rosurce available out there for Windows Privilge Escalation, I would not have passed the exam without this! (I'm planning on writing a series of posts on this, keep an eye out!)
+Best resource available out there for Windows Privilge Escalation, I would not have completed the course without this! (I'm planning on writing a series of posts on this, keep an eye out!)
 
 + [Lin.security](https://www.vulnhub.com/entry/linsecurity-1,244/) :
 Amazing resource for learning common Linux Privilege Escalation techniques. They also have a well written walkthrough [here](https://in.security/lin-security-walkthrough/)
@@ -77,10 +77,10 @@ I used this to practice buffer overflows before the exam. They have a well writt
 
 ## Advice
 
-+ The OSCP exam is all about enumeration. If you hit a brick wall, you probably missed something important in the enumeration. Don't spend too long working in the same direction, just reset and enumerate again. Following this could have saved me more than 6 hours in exam and a lot of frustration.  
++ The OSCP course is all about enumeration. If you hit a brick wall, you probably missed something important in the enumeration. Don't spend too long working in the same direction, just reset and enumerate again. Following this could have saved me more a lot of time and frustration.  
 + Don't exploit the machines just to get flags. Learn what service it is, what it does and how it is supposed to work under normal conditions. This will help you understand what's different in your situation, ultimately making it easier for you to exploit it. 
 + Don't rely solely on the PWK labs. They are outdated and don't cover many of the necessary techniques.
-+ Try to work on other resources such as VHL, HTB or above mentioned resources. They are really helpful from the course and exam's perpective.
++ Try to work on other resources such as VHL, HTB or ones mentioned above. They are really helpful from the course and exam's perpective.
 + Try to develope your own methodology. For example, I'm more comfortable with web services than network. So, I'd always enumerate the web ports first and then go after other services.
 + For windows, learn how to upgrade to powershell on the victim system using [Nishang](https://github.com/samratashok/nishang). You can watch ippsec's videos for this (Writeup coming soon!). 
 	- Learning how to load and run those powershell scripts directly from memory can help you evade AV and HIDS on newer windows OS!
