@@ -11,6 +11,8 @@ I recently took at a shot at OSCP and passed it with flying colors (got 5/5 syst
 {: .text-justify}
 ![image-center](/assets/images/oscp/oscp.png)
 
+---
+
 ## Background
 
 While I have a background in the infosec field, it's a relatively short one. I got into the field in late 2018 with the start of my masters degree in cybersecurity. I was already familiar with basic concepts of programming, networking etc. thanks to my undergrad degree. In the summer of 2019, I worked as a security intern at a consulting firm. Before starting PWK, I had also worked on a few Hack the Box machines, which proved to be very useful for OSCP.
@@ -21,8 +23,6 @@ While I have a background in the infosec field, it's a relatively short one. I g
 During the summer internship, I was introduced to [Hack the Box](https://www.hackthebox.eu/) and OSCP. I decided to work on HTB, learn the basics, then start PWK in following September, go through the labs for 60 days and attempt the exam mid-November. With no prior background in pentesting, I spent around 8-10 hrs a week on HTB for three months during summer. I focused more on the retired systems, especially the "OSCP like HTB machines" from this [playlist](https://www.youtube.com/playlist?list=PLidcsTyj9JXK-fnabFLVEvHinQ14Jy5tf). 
 [IppSec's](https://www.youtube.com/channel/UCa6eh7gCkpPo5XXUDfygQQA) youtube videos were immensely helpful and I literally treated this channel as my Netflix for the summer. Using his walkthroughs as reference, I went through about 30 retired HTB systems. This helped me understand the basic process and I got a good amount of practice on the methodology.
 {: .text-justify}
-
----
 
 ## Lab
 
@@ -49,6 +49,8 @@ Now, it was 4am and I had 100/100 points. I was exhausted both mentally and phys
 I woke up at about 10am. Even though a short one, it was a good 3-hours nap. Since I had the whole writeup in notes, all I had to do was to copy-paste everything into a template for the exam report. For this, I used [whoisflynn's](https://github.com/whoisflynn/OSCP-Exam-Report-Template) template. I submitted the report at 12pm and now was my turn to wait for Offsec's response. Surprisingly, the wait was very short (30 hours) and I received the passing email at 6pm on 26th Oct. This was the ultimate prize of a very challenging yet rewarding 5 month journey!
 {: .text-justify}
 
+---
+
 ## My take on OSCP
 
 As a newbie to pentesting, it took me about 5 months of prepartion to get to this point. Directly or indirectly, I learned a lot from this course and had a lot of fun. While the PWK labs are definitely outdated and also fall short on important topics such as Windows privesc and client-side web explotation, they are still worth every penny and time. The OSCP cert is still one of the more important things to have on your resume for an entry level pentesting job and you'd not regret it.
@@ -63,31 +65,21 @@ During this course, I came across an amazing community [InfoSec Prep](https://di
 While most of these takeaways are listed on every other blog, I will just try to list the ones that were most helpful.
 {: .text-justify}
 
----
 + [Autorecon](https://github.com/Tib3rius/AutoRecon) :
 This gem of a tool can be used to automate the initial enumeration phase. While I did not use it in labs, I decided to give it a go just four days before the exam, configured it according to my preferences and used it in the exam. This saved me a lot of time by automating all that enumeration. All I had to do was to look at the huge output and figure out which low hanging fruit to go after. For something like OSCP exam which is time bound, autorecon is definitely very useful.
-
 + [OSCP-HTB Walkthrough Playlist by TJNull and Ippsec](https://www.youtube.com/playlist?list=PLidcsTyj9JXK-fnabFLVEvHinQ14Jy5tf) :
 This channel and playlist deserve a huge amount of credit for helping me learn and pass the OSCP.
-
 + [lpeworkshop](https://github.com/sagishahar/lpeworkshop) :
 Best resource available out there for Windows Privilege Escalation, I would not have completed the course without this! (I'm planning on writing a series of posts on this, keep an eye out!)
-
 + [Lin.security](https://www.vulnhub.com/entry/linsecurity-1,244/) :
 Amazing resource for learning common Linux Privilege Escalation techniques. They also have a well written walkthrough [here](https://in.security/lin-security-walkthrough/).
-
 + [Linux Privilege Escalation Guide](https://www.udemy.com/course/linux-privilege-escalation/?referralCode=0B0B7AA1E52B4B7F4C06) :
 Another amazing resource from Tib3rius, the author of Autorecon. While I did not take this, I have heard really good reviews about this for OSCP. 
-
 + [PortSwigger's Web Security Academy](https://portswigger.net/web-security) :
 This is a very good guide on fundamentals of Web app vulns.
-
 + [dostackbufferoverflowgood](https://github.com/justinsteven/dostackbufferoverflowgood) :
 I used this to practice buffer overflows before the exam. They have a well written writeup too!
-
 {: .text-justify}
-
----
 
 ## Advice
 
@@ -101,7 +93,6 @@ I used this to practice buffer overflows before the exam. They have a well writt
 	- Powershell allows you to use PS Modules like [PowerUp](https://github.com/HarmJ0y/PowerUp) and [JAWS](https://github.com/411Hall/JAWS) which make the privilge escalation way more easier.
 + If you are familiar with basic concepts, just skip the lab exercises. They are really not worth the 1 week/5 points and you'd rather spend that time learning about something else.
 + In the exam, remember to take breaks and eat/drink.
-
 {: .text-justify}
 
 ## Post-OSCP plans
@@ -109,7 +100,7 @@ I used this to practice buffer overflows before the exam. They have a well writt
 It's already been more than a month since getting the OSCP. I had to spend it catching up with the semester (hence the late post!), and right now I'm enjoying a little winter break before diving more into web apps. My current plan is to work on [PentesterLab's Web Exercises](https://pentesterlab.com/exercises) and then start looking for web app pentesting jobs. I want to start OSWE in February, but that'd depend on how the job hunt goes.
 {: .text-justify}
 
-
+---
 Thank you for reading this article. As the [about](/about/) section says, I suck at writing and this was my first ever blog post. I hope this proves to be helpful to someone. If you have any questions or would just like to discuss anything, feel free to get in touch with me!
 {: .text-justify}
 
