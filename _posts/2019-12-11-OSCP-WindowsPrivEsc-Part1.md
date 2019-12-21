@@ -25,7 +25,7 @@ This will share the `/tmp/smbshare` directory over smb as `myshare`.
 		![image-center](/assets/images/oscp/1/smbmount.png)
 - Now, you can simply change dir to `Z` and browse the shared files as a drive on the victim system.  
 ![image-center](/assets/images/oscp/1/smbmount2.png)
-- The mount can be disconnected with command `net use Z: /d` once you are done with it.   
+- The mount can be disconnected with command `net use Z: /d` and deleted with `net use Z: /delete` once you are done with it.   
 {: .text-justify}
 
 Another easy way to transfer files is over http using python's SimpleHTTPServer or Apache. We will take a look at it and download files using PowerShell in the following section.
@@ -51,7 +51,7 @@ This downloads `testfile` and executes it in the memory.
 The `Invoke-PowerShellTcp.ps1` can be used to get an interactive Reverse or Bind PowerShell from the target. This script is able to connect to an attacker's netcat listener using -Reverse switch or an attacker's netcat can connect to this script Bind to a specific port on the victim when using -Bind switch. For this exercise, we are assuming that you already have access to the victim (web command injection or a cmd shell using eternalblue/any other exploit) and will look at how this cmd shell can be upgraded to an interactive reverse PowerShell.
 {: .text-justify}
 
-### Method 1: Using HTTP to evade Antivirus
+### Method 1: Using HTTP (Can evade Windows AV)
 
 We will share our `Invoke-PowerShellTcp.ps1` over http, download it to the victim, and execute it inside memory to send a reverse PowerShell.
 1. Start python's `SimpleHTTPServer` and copy the `Invoke-PowerShellTcp.ps1` to that directory.   
@@ -104,7 +104,7 @@ We can grab a free copy of Windows Evaluation versions directly from [Microsoft]
 The setup is fairly simple: Copy the lpe_windows_setup.bat script to VM and run it as an Administrator. A few exercises will not be setup (1,9,14) as those are platform specific and are not included in the setup script.
 {: .text-justify}
 
-In the next part, we will go through the exercises from lpeworkshop and see how we can indentify and exploit the vulnerabilties with the help of `PowerUp1.ps1` 
+In the next part, we will go through the exercises from lpeworkshop and see how we can indentify and exploit the vulnerabilties with the help of `PowerUp.ps1` 
 
 ---
 ## Additional resources
