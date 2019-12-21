@@ -104,7 +104,7 @@ We can grab a free copy of Windows Evaluation versions directly from [Microsoft]
 {: .text-justify}
 
 [Note: Take a snapshot of the windows VM before starting the setup]  
-The setup is fairly simple: Copy the lpe_windows_setup.bat script to VM and run it as an Administrator. A few exercises will not be setup (1,9,14) as those are platform specific and are not included in the setup script.
+The setup is fairly simple: Copy the lpe_windows_setup.bat script to VM and run it as an Administrator. A few exercises will not be setup (1,9,11,13) as those are platform specific and are not included in the setup script.
 {: .text-justify}
 
 In the next part, we will go through the exercises from lpeworkshop and see how we can indentify and exploit the vulnerabilties with the help of `PowerUp.ps1` 
