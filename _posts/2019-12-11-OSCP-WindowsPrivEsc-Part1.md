@@ -105,8 +105,9 @@ The setup is fairly simple: Copy the lpe_windows_setup.bat script to VM and run 
 {: .text-justify}
 
 In the next part, we will go through the exercises from lpeworkshop and see how we can indentify and exploit the vulnerabilties with the help of `PowerUp1.ps1` 
+
 ---
 ## Additional resources
 
-- [](https://hacknpentest.com/windows-privilege-escalation-using-powershell/)
-- [](https://github.com/J3rryBl4nks/LPEWalkthrough)
+- [Windows PrivEsc using powershell](https://hacknpentest.com/windows-privilege-escalation-using-powershell/)
+- [lpeworkshop walkthrough by J3rryBl4nks](https://github.com/J3rryBl4nks/LPEWalkthrough)
